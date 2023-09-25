@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dataForm="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
+             xmlns:local="clr-namespace:DataForm_DataValidation"
+             x:Class="DataForm_DataValidation.MainPage">
+    
+    <ContentPage.BindingContext>
+        <local:DataFormViewModel/>
+    </ContentPage.BindingContext>
+    
+    <Grid VerticalOptions="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <Label Text="Sign in" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Center" 
+               HorizontalTextAlignment="Center">
+        </Label>
+        <HorizontalStackLayout Grid.Row="1"  HorizontalOptions="Center" Margin="15,0,20,0" >
+        <Image Source="google.png" Aspect="AspectFit" Margin="20, 10" WidthRequest="50" />
+            <Image Source="facebook.png" Aspect="AspectFit" Margin="20, 10" WidthRequest="50" />
+            <Image Source="microsoft.png" Aspect="AspectFit" Margin="20, 10" WidthRequest="50"  />
+    </HorizontalStackLayout>
+        <dataForm:SfDataForm  x:Name="signInForm" Grid.Row="2" 
+                          LayoutType="TextInputLayout"
+                          DataObject="{Binding SignInFormModel}"
+                          ValidationMode="LostFocus">
+            <dataForm:SfDataForm.ErrorLabelTextStyle>
+                <dataForm:DataFormTextStyle TextColor="DarkRed" FontFamily="Roboto"
+                                            FontAttributes="Bold"/>
+            </dataForm:SfDataForm.ErrorLabelTextStyle>
+
+            <dataForm:SfDataForm.ValidMessageLabelTextStyle>
+                <dataForm:DataFormTextStyle TextColor="Blue" FontFamily="Roboto"
+                                            FontAttributes="Bold"/>
+            </dataForm:SfDataForm.ValidMessageLabelTextStyle>
+            <dataForm:SfDataForm.TextInputLayoutSettings>
+                <dataForm:TextInputLayoutSettings ShowHelperText="True" />
+            </dataForm:SfDataForm.TextInputLayoutSettings>
+        </dataForm:SfDataForm>
+        <Line Grid.Row="3" Background="WhiteSmoke" />
+        <Button Text="Sign In" x:Name="signInButton"  VerticalOptions="Center" Margin="22,9" 
+                CornerRadius="5" FontSize="16"
+                 Grid.Row="4" Background="#6200EE"/>
+    </Grid>
+
+</ContentPage>
