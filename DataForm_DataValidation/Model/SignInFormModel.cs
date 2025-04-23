@@ -1,5 +1,4 @@
-﻿using Android.Views;
-using Syncfusion.Maui.DataForm;
+﻿using Syncfusion.Maui.DataForm;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
